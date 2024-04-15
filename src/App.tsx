@@ -10,13 +10,13 @@ const App: React.FC = () => {
                     <img src={CoachJanneLogo} className="logo" />
                 </a>
             </div>
-            <h1>
+            <div>
                 Finn meg på
                 <a href="https://www.tiktok.com/@jannenordiin" target="_blank" rel="noreferrer">
                     {' '}
                     tiktok.com/@jannenordiin
                 </a>
-            </h1>
+            </div>
             <p className="read-the-docs">🚧Nettstedet er under konstruksjon🚧</p>
         </>
     );
