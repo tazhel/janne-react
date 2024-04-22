@@ -110,8 +110,7 @@ body {
 }
 
 .homepage-container {
-    display: flex;
-    flex-direction: column;
+    position: relative;
 }
 
 .homepage-video {
@@ -133,23 +132,44 @@ body {
     object-fit: cover;
 }
 
+.homepage-video-text {
+    position: absolute;
+    top: 30vh;
+    left: 30vw;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000000;
+}
+
 .homepage-half-text {
     width: 45%;
     padding-left: 64px;
     margin-bottom: 120px;
 }
+
+.homepage-text-big-outline {
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 800;
+}
+
 .homepage-text-big {
     font-size: 50px;
     font-style: italic;
     font-weight: 800;
 }
+
 .homepage-text-medium {
     font-size: 30px;
     font-weight: 500;
 }
 
 .homepage-air {
-    height: 200px;
+    height: 120px;
 }
 
 @media (max-width: 768px) {
@@ -178,5 +198,70 @@ body {
     .homepage-text-medium {
         font-size: 20px;
         font-weight: 500;
+    }
+    .homepage-video-text {
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);
+    }
+    .homepage-text-big-outline {
+        width: 75vw;
+    }
+}
+
+.features-text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+.features-text-container:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.features-text {
+    color: white;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.features-text-small {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 48px;
+    text-align: center;
+    opacity: 0;
+}
+
+.features-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition:
+        transform 0.3s,
+        opacity 0.3s;
+}
+
+.features-image-container:hover .features-text-small {
+    opacity: 1;
+}
+@media (max-width: 768px) {
+    .features-text-container:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .features-text-small {
+        opacity: 1;
     }
 }

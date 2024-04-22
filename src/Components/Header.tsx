@@ -33,7 +33,7 @@ const Header: React.FC = () => {
                     >
                         <Typography variant="body1">Min Historie</Typography>
                     </Link>
-                    <Button href="https://zenfit.io/" className="header-link" variant="contained">
+                    <Button href="https://zenfit.io/no" className="header-link" variant="contained">
                         Kom i gang
                     </Button>
                 </div>

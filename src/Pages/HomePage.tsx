@@ -1,13 +1,22 @@
 import React from 'react';
+import Features from '../Components/Features';
 import '../global.css';
+import IsMobile from '../hooks/IsMobile';
 
 const HomePage: React.FC = () => {
+    const isMobile = IsMobile();
+
     return (
-        <div>
-            <video autoPlay muted loop className="homepage-video">
-                <source src="./CoachJannePromo1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+        <div className="homepage-container">
+            <div className="homepage-video-container">
+                <video autoPlay muted loop className="homepage-video">
+                    <source src="./CoachJannePromo1.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <div className="homepage-video-text">
+                    <div className="homepage-text-big-outline">Opplev gleden av å trene</div>
+                </div>
+            </div>
             <div className="homepage-air" />
             <div className="homepage-content">
                 <div className="homepage-half-video-container">
@@ -25,6 +34,8 @@ const HomePage: React.FC = () => {
                 </div>
             </div>
             <div className="homepage-air" />
+            <Features />
+            {!isMobile && <div className="homepage-air" />}
         </div>
     );
 };
