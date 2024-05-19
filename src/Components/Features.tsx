@@ -22,7 +22,7 @@ const Features: React.FC = () => {
                     '-ms-overflow-style': 'none' /* Hide scrollbar for IE & Edge */,
                 }}
                 cols={isMobile ? 1 : 4}
-                gap={8}
+                gap={0}
             >
                 {itemData.map((item, index) => (
                     <ImageListItem
@@ -31,6 +31,7 @@ const Features: React.FC = () => {
                             position: 'relative',
                             transform: hoveredIndex === index ? 'scale(1.2)' : 'scale(1)',
                             transition: 'transform 0.3s ease-in-out',
+                            zIndex: hoveredIndex === index ? 1 : 0,
                         }}
                         className="features-image-container"
                         onMouseEnter={() => handleHover(index)}

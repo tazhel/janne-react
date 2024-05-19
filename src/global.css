@@ -4,8 +4,8 @@
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color: var(--text-color);
+    background-color: var(--background-color);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -13,6 +13,22 @@
     -moz-osx-font-smoothing: grayscale;
 
     --header-height: 80px;
+
+    --background-color: #ffffff;
+    --background-color-80: #ffffffcc;
+    --background-color-50: #ffffff80;
+    --text-color: #242424;
+    --primary-color: #646cff;
+    --primary-hover-color: #323cfc;
+}
+
+[data-theme='dark'] {
+    --background-color: #242424;
+    --background-color-80: #000000cc;
+    --background-color-50: #00000080;
+    --text-color: #ffffff;
+    --primary-color: #646cff;
+    --primary-hover-color: #b1b5ff;
 }
 
 ::-webkit-scrollbar {
@@ -20,18 +36,19 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #444444;
+    background-color: var(--background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #646cff;
+    background-color: var(--primary-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #b1b5ff;
+    background-color: var(--primary-hover-color);
 }
 
 body {
+    background-color: var(--background-color);
     margin: 0px;
 }
 
@@ -55,12 +72,21 @@ body {
     justify-content: space-between;
     align-items: center;
     height: var(--header-height);
-    background-color: #444444;
+    background-color: var(--background-color);
+    z-index: 99;
+}
+
+.header-content-mobile {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: var(--header-height);
+    background-color: var(--background-color);
     z-index: 99;
 }
 
 .header-logo {
-    height: 32px;
+    height: 28px;
     padding: 0 12px;
     will-change: filter;
     transition: filter 300ms;
@@ -70,6 +96,10 @@ body {
     filter: drop-shadow(0 0 8px #646cffaa);
 }
 
+.header-logo-mobile {
+    height: 28px;
+}
+
 .header-button-container {
     display: flex;
     align-items: center;
@@ -77,12 +107,11 @@ body {
 }
 
 .header-button {
-    color: white;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     height: calc(100% - 2px);
     padding: 0 16px;
-    margin: 0 16px;
     cursor: pointer;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -92,21 +121,24 @@ body {
 }
 
 .header-button:hover {
-    color: #b1b5ff;
+    color: var(--primary-color);
 }
 
 .header-button.active {
-    color: white;
-    border-bottom: 4px solid #646cff;
+    border-bottom: 4px solid var(--primary-color);
 }
 
 .header-button.active:hover {
-    color: #b1b5ff;
+    color: var(--primary-color);
 }
 
 .header-link {
     height: 48px;
     margin: 0 12px !important;
+}
+.header-link-mobile {
+    height: 48px;
+    margin: 0 6px !important;
 }
 
 .homepage-container {
@@ -117,6 +149,7 @@ body {
     width: 100%;
     height: calc(100vh - var(--header-height));
     object-fit: cover;
+    opacity: 0.4;
 }
 
 .homepage-content {
@@ -134,15 +167,12 @@ body {
 
 .homepage-video-text {
     position: absolute;
-    top: 30vh;
-    left: 30vw;
+    width: 80vw;
+    top: 60vh;
+    left: 45vw;
     transform: translate(-50%, -50%);
-    text-align: center;
+    text-align: left;
     color: white;
-    font-size: 24px;
-    font-weight: bold;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #000000;
 }
 
 .homepage-half-text {
@@ -152,7 +182,7 @@ body {
 }
 
 .homepage-text-big-outline {
-    font-size: 60px;
+    font-size: 6vw;
     font-style: italic;
     font-weight: 800;
 }
@@ -200,12 +230,72 @@ body {
         font-weight: 500;
     }
     .homepage-video-text {
-        top: 50vh;
+        top: 60vh;
         left: 50vw;
         transform: translate(-50%, -50%);
     }
     .homepage-text-big-outline {
         width: 75vw;
+        font-size: 60px;
+    }
+}
+
+.myjourney-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 16px;
+}
+
+.myjourney-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myjourney-title {
+    width: 40vw;
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 800;
+}
+
+.myjourney-text {
+    width: 40vw;
+    font-size: 20px;
+}
+
+.myjourney-image {
+    width: 20vw;
+    height: 20vw;
+    margin: 16px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.myjourney-image-half {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .myjourney-container {
+        align-items: normal;
+    }
+
+    .myjourney-title {
+        width: auto;
+    }
+
+    .myjourney-text {
+        width: auto;
+    }
+
+    .myjourney-image {
+        width: 90vw;
+        height: 90vw;
     }
 }
 
@@ -217,18 +307,38 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--background-color-50);
     transition: opacity 0.3s;
     opacity: 1;
 }
 .features-text-container:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--background-color-80);
+}
+.features-text-container-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-color-80);
+    transition: opacity 0.3s;
+    opacity: 1;
 }
 
 .features-text {
-    color: white;
+    color: var(--text-color);
+    font-size: 26px;
+    font-weight: 700;
+    margin: 80px 0 10px 0;
+    text-align: center;
+}
+.features-text-mobile {
+    color: var(--text-color);
     font-size: 26px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -236,7 +346,7 @@ body {
 }
 
 .features-text-small {
-    color: white;
+    color: var(--text-color);
     font-size: 18px;
     font-weight: 500;
     margin: 0 48px;
@@ -259,7 +369,7 @@ body {
 }
 @media (max-width: 768px) {
     .features-text-container:hover {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: var(--background-color-50);
     }
     .features-text-small {
         opacity: 1;
