@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                             id="basic-button"
                             aria-controls={anchorEl ? 'basic-menu' : undefined}
                             aria-haspopup="true"
-                            aria-expanded={Boolean(anchorEl) ? 'true' : undefined}
+                            aria-expanded={anchorEl ? 'true' : undefined}
                             onClick={handleClick}
                         >
                             <MenuIcon />
