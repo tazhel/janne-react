@@ -1,0 +1,201 @@
+.home-container {
+    position: relative;
+    width: 100%;
+    height: calc(100dvh + 1200px);
+    overflow: hidden;
+}
+
+.home-container img {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: auto;
+    max-width: 50dvw;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-left {
+    position: absolute;
+    top: 35dvh;
+    left: 0;
+    margin-left: 64px;
+    width: auto;
+}
+
+.home-logo {
+    display: none;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: auto !important;
+    max-width: 40dvw !important;
+    height: 200px !important;
+    object-fit: contain !important;
+}
+
+.home-title {
+    font-family: 'DM Serif Display', serif;
+    width: 40dvw;
+    margin-bottom: 8px;
+    font-size: 30px;
+    font-weight: 800;
+    color: transparent;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.home-text {
+    width: 40dvw;
+    font-size: 20px;
+}
+
+.home-button {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background-size: 300% 300%;
+    border: none;
+    padding: 12px 24px;
+    margin: 48px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    animation: Gradient 6s ease infinite;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.home-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.home-button:active {
+    transform: translateY(1px);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient Animation */
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.home-color {
+    color: transparent;
+    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background-size: 400% 400%; /* Make the gradient larger than the container to allow for movement */
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: Gradient 15s ease infinite; /* The gradient will animate over 15 seconds */
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.coaching-logo {
+    z-index: 10;
+    right: 0;
+    top: 20px;
+    width: 100px;
+    transform-origin: right center;
+}
+
+.coaching-image {
+    z-index: 5;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+}
+
+.coaching-image-alone {
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 1400px) {
+    .home-logo {
+        display: block;
+    }
+
+    .home-left {
+        top: 15dvh;
+    }
+
+    .coaching-logo {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-container {
+        height: 100dvh;
+    }
+
+    .home-container img {
+        max-width: 100dvw;
+    }
+
+    .home-left {
+        z-index: 30;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 0;
+        width: auto;
+    }
+
+    .home-title {
+        margin-left: 16px;
+        width: 55dvw;
+    }
+
+    .home-text {
+        margin-left: 16px;
+        width: 55dvw;
+    }
+
+    .home-logo {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: auto !important;
+        max-width: calc(100dvw - 32px) !important;
+        padding-top: 16px;
+        height: 120px !important;
+        margin: 0 16px !important;
+        object-fit: contain !important;
+    }
+
+    .coaching-logo {
+        display: block;
+        object-fit: contain !important;
+    }
+}

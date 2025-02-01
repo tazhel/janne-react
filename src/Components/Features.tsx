@@ -60,22 +60,22 @@ export default Features;
 
 const itemData = [
     {
-        img: '/FeatureEgenApp.webp',
+        img: '/CoachingMedJanne.jpg',
         title: 'Egen app',
         author: 'Med Zenfit appen så kan jeg bruke tid på å lage programmet perfekt til deg, mens alt du trenger kommer i appen',
     },
     {
-        img: '/FeaturesTrening.jpg',
+        img: '/CoachingMedJanne.jpg',
         title: 'Treningsplanlegger',
         author: 'Legger opp gode treningsplaner for deg, sammen finner vi det som passer deg best',
     },
     {
-        img: '/FeaturesMåltid.jpg',
+        img: '/CoachingMedJanne.jpg',
         title: 'Måltidsplanlegger',
         author: 'Med måltidplanlegging så vil treningen bli komplett',
     },
     {
-        img: '/FeaturesRinge.jpg',
+        img: '/CoachingMedJanne.jpg',
         title: 'Tekst og videochat',
         author: 'God kommunikasjon er viktig, ring eller chat om det er noe',
     },

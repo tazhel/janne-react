@@ -1,0 +1,77 @@
+.card {
+    background-color: #3e3c3b;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 340px;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-label {
+    position: absolute;
+    top: 10px;
+    right: -32px;
+    background-color: #ff4e00;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 36px;
+    transform: rotate(45deg); /* 45-degree tilt */
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.card-label:hover {
+    background-color: #ff7a00;
+    transform: rotate(45deg) scale(1.1); /* Slight scale effect on hover */
+}
+
+.card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    color: transparent;
+    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: Gradient 15s ease infinite;
+}
+
+.card-body {
+    margin-bottom: 20px;
+}
+
+.card-binding {
+    font-size: 16px;
+    color: #777;
+    font-weight: 500;
+}
+
+.card-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.card-text-container {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}

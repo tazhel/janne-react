@@ -1,0 +1,68 @@
+.om-meg-container {
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+    gap: 16px;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.om-meg-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.om-meg-title {
+    font-family: 'DM Serif Display', serif;
+    width: 40dvw;
+    font-size: 30px;
+    font-weight: 800;
+    color: transparent; /* Makes the text fill transparent */
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient color for the text fill */
+    background-clip: text; /* Clips the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+}
+
+.om-meg-text {
+    width: 60dvw;
+    font-size: 20px;
+}
+
+.om-meg-image {
+    width: 60dvw;
+    height: 60dvw;
+    margin: 16px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.om-meg-image-half {
+    width: 40dvw;
+    height: 40dvw;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 1452px) {
+    .om-meg-container {
+        align-items: normal;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .om-meg-title {
+        width: auto;
+    }
+
+    .om-meg-text {
+        width: auto;
+    }
+    .om-meg-image {
+        width: 90vw;
+        height: 90vw;
+    }
+}

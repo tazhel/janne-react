@@ -12,14 +12,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    --header-height: 80px;
+    --header-height: 60px;
 
     --background-color: #ffffff;
     --background-color-80: #ffffffcc;
     --background-color-50: #ffffff80;
     --text-color: #242424;
-    --primary-color: #646cff;
-    --primary-hover-color: #323cfc;
+    --primary-color: #f0d6bd;
+    --primary-hover-color: #f0d6bd;
+    --variant-containedBg: #f0d6bd;
 }
 
 [data-theme='dark'] {
@@ -27,8 +28,9 @@
     --background-color-80: #000000cc;
     --background-color-50: #00000080;
     --text-color: #ffffff;
-    --primary-color: #646cff;
-    --primary-hover-color: #b1b5ff;
+    --primary-color: #f0d6bd;
+    --primary-hover-color: #f0d6bd;
+    --variant-containedBg: #f0d6bd;
 }
 
 ::-webkit-scrollbar {
@@ -52,93 +54,43 @@ body {
     margin: 0px;
 }
 
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.scroll-link {
+    margin-bottom: 100px;
+}
+
+.scroll-link-less {
+    margin-bottom: 400px;
+}
+
+.logo {
+    z-index: 10;
+}
+
+.coaching-image {
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.coaching-image-alone {
+    z-index: 1;
+}
+
 .page-container {
     margin-top: var(--header-height);
     overflow-y: auto;
-    height: calc(100vh - var(--header-height));
-}
-
-.header-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: var(--header-height);
-    background-color: var(--background-color);
-    z-index: 99;
-}
-
-.header-content-mobile {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: var(--header-height);
-    background-color: var(--background-color);
-    z-index: 99;
-}
-
-.header-logo {
-    height: 28px;
-    padding: 0 12px;
-    will-change: filter;
-    transition: filter 300ms;
-}
-
-.header-logo:hover {
-    filter: drop-shadow(0 0 8px #646cffaa);
-}
-
-.header-logo-mobile {
-    height: 28px;
-}
-
-.header-button-container {
-    display: flex;
-    align-items: center;
-    height: calc(100% - 2px);
-}
-
-.header-button {
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    height: calc(100% - 2px);
-    padding: 0 16px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-decoration: none;
-    border-bottom: 4px solid #00000000;
-}
-
-.header-button:hover {
-    color: var(--primary-color);
-}
-
-.header-button.active {
-    border-bottom: 4px solid var(--primary-color);
-}
-
-.header-button.active:hover {
-    color: var(--primary-color);
-}
-
-.header-link {
-    height: 48px;
-    margin: 0 12px !important;
-}
-.header-link-mobile {
-    height: 48px;
-    margin: 0 6px !important;
 }
 
 .homepage-container {
@@ -237,65 +189,6 @@ body {
     .homepage-text-big-outline {
         width: 75vw;
         font-size: 60px;
-    }
-}
-
-.myjourney-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 16px;
-}
-
-.myjourney-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.myjourney-title {
-    width: 40vw;
-    font-size: 60px;
-    font-style: italic;
-    font-weight: 800;
-}
-
-.myjourney-text {
-    width: 40vw;
-    font-size: 20px;
-}
-
-.myjourney-image {
-    width: 20vw;
-    height: 20vw;
-    margin: 16px;
-    border-radius: 20px;
-    object-fit: cover;
-}
-
-.myjourney-image-half {
-    width: 40vw;
-    height: 40vw;
-    border-radius: 20px;
-    object-fit: cover;
-}
-
-@media (max-width: 768px) {
-    .myjourney-container {
-        align-items: normal;
-    }
-
-    .myjourney-title {
-        width: auto;
-    }
-
-    .myjourney-text {
-        width: auto;
-    }
-
-    .myjourney-image {
-        width: 90vw;
-        height: 90vw;
     }
 }
 

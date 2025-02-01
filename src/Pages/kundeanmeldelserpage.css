@@ -1,0 +1,68 @@
+.kundeanmeldelser-container {
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+    gap: 16px;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
+
+.kundeanmeldelser-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kundeanmeldelser-title {
+    font-family: 'DM Serif Display', serif;
+    width: 40dvw;
+    font-size: 30px;
+    font-weight: 800;
+    color: transparent; /* Makes the text fill transparent */
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient color for the text fill */
+    background-clip: text; /* Clips the background to the text */
+    -webkit-background-clip: text; /* For Safari */
+}
+
+.kundeanmeldelser-text {
+    width: 60dvw;
+    font-size: 20px;
+}
+
+.kundeanmeldelser-image {
+    width: 60dvw;
+    height: 60dvw;
+    margin: 16px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.kundeanmeldelser-image-half {
+    width: 40dvw;
+    height: 40dvw;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 1452px) {
+    .kundeanmeldelser-container {
+        align-items: normal;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .kundeanmeldelser-title {
+        width: auto;
+    }
+
+    .kundeanmeldelser-text {
+        width: auto;
+    }
+    .kundeanmeldelser-image {
+        width: 90vw;
+        height: 90vw;
+    }
+}

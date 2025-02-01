@@ -4,6 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './Components/Header';
 import './global.css';
 import { useThemeMode } from './hooks/Helpers';
+import HjemPage from './Pages/HjemPage';
+import KontaktPage from './Pages/KontaktPage';
+import KundeAnmeldelserPage from './Pages/KundeAnmeldelserPage';
+import MineTjenesterPage from './Pages/MineTjenesterPage';
+import OmMegPage from './Pages/OmMegPage';
 
 const App: React.FC = () => {
     const { theme } = useThemeMode();
@@ -21,21 +26,15 @@ const App: React.FC = () => {
             <ThemeProvider theme={customTheme}>
                 <Header />
                 <div className="page-container">
-                    <div
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            marginTop: '40px',
-                            fontSize: '40px',
-                        }}
-                    >
-                        Under development
-                    </div>
-                    {/* <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/min-reise" element={<MyJourneyPage />} />
-                        <Route path="/kontakt-meg" element={<ContactMePage />} />
-                    </Routes> */}
+                    <HjemPage />
+                    <div id="mine-tjenester" className="scroll-link-less" />
+                    <MineTjenesterPage />
+                    <div id="om-meg" className="scroll-link" />
+                    <OmMegPage />
+                    <div id="kundeanmeldelser" className="scroll-link" />
+                    <KundeAnmeldelserPage />
+                    <div id="kontakt" className="scroll-link" />
+                    <KontaktPage />
                 </div>
             </ThemeProvider>
         </BrowserRouter>

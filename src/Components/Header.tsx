@@ -1,144 +1,62 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import { Button, IconButton, Menu, MenuItem, Typography } from '@mui/material';
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import CoachJanneLogo from '../Icons/CoachJanneLogo.svg';
-import CoachJanneLogoLight from '../Icons/CoachJanneLogoLight.svg';
-import '../global.css';
-import { useThemeMode } from '../hooks/Helpers';
-import IsMobile from '../hooks/IsMobile';
+import { Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import './header.css';
 
 const Header: React.FC = () => {
-    const isMobile = IsMobile();
-    const location = useLocation();
-    const [activeTab, setActiveTab] = useState<string>(location.pathname);
-    const { theme } = useThemeMode();
+    const [activeTab, setActiveTab] = useState<string>('');
 
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    // Function to handle scroll and update the active tab based on section visibility
+    useEffect(() => {
+        const sections = document.querySelectorAll('[id]');
+        const onScroll = () => {
+            sections.forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    setActiveTab(`#${section.id}`); // Set active tab based on section id
+                }
+            });
+        };
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+        // Adding scroll event listener
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
-    const handleTabClick = (path: string) => {
-        setActiveTab(path);
-    };
-
-    const handleMenuItemClick = (path: string) => {
-        setActiveTab(path);
-        handleClose();
-        console.log(activeTab);
-    };
-
-    const handleMenuClose = (event: React.MouseEvent<HTMLElement>) => {
-        if (!anchorEl || anchorEl.contains(event.target as HTMLElement)) {
-            return;
-        }
-        handleClose();
+    // Scroll to section when button clicked
+    const handleTabClick = (id: string) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        setActiveTab(`#${id}`);
     };
 
     return (
         <div className="header-container">
-            <div className="header-content-mobile">
-                {isMobile ? (
-                    <>
-                        <IconButton
-                            size="large"
-                            aria-label="menu"
-                            id="basic-button"
-                            aria-controls={anchorEl ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={anchorEl ? 'true' : undefined}
-                            onClick={handleClick}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}
-                            onClick={handleMenuClose}
-                            MenuListProps={{
-                                'aria-labelledby': 'basic-button',
-                            }}
-                        >
-                            <MenuItem
-                                component={Link}
-                                to="/"
-                                onClick={() => handleMenuItemClick('/')}
-                                selected={activeTab === '/'}
-                            >
-                                Hjem
-                            </MenuItem>
-                            <MenuItem
-                                component={Link}
-                                to="/min-reise"
-                                onClick={() => handleMenuItemClick('/min-reise')}
-                                selected={activeTab === '/min-reise'}
-                            >
-                                Min reise
-                            </MenuItem>
-                            <MenuItem
-                                component={Link}
-                                to="/kontakt-meg"
-                                onClick={() => handleMenuItemClick('/kontakt-meg')}
-                                selected={activeTab === '/kontakt-meg'}
-                            >
-                                Kontakt meg
-                            </MenuItem>
-                        </Menu>
-                        <Link to="/" className="header-logo-mobile" onClick={() => handleTabClick('/')}>
-                            <img
-                                className="header-logo-mobile"
-                                src={theme === 'light' ? CoachJanneLogoLight : CoachJanneLogo}
-                                alt="Logo"
-                            />
-                        </Link>
-                        <Button href="https://zenfit.io" className="header-link-mobile" variant="contained">
-                            Kom i gang
-                        </Button>
-                    </>
-                ) : (
-                    <>
-                        <Link to="/" className="header-logo" onClick={() => handleTabClick('/')}>
-                            <img
-                                className="header-logo"
-                                src={theme === 'light' ? CoachJanneLogoLight : CoachJanneLogo}
-                                alt="Logo"
-                            />
-                        </Link>
-                        <div className="header-button-container">
-                            <Link
-                                to="/"
-                                className={`header-button ${activeTab === '/' ? 'active' : ''}`}
-                                onClick={() => handleTabClick('/')}
-                            >
-                                <Typography variant="h6">Hjem</Typography>
-                            </Link>
-                            <Link
-                                to="/min-reise"
-                                className={`header-button ${activeTab === '/min-reise' ? 'active' : ''}`}
-                                onClick={() => handleTabClick('/min-reise')}
-                            >
-                                <Typography variant="h6">Min reise</Typography>
-                            </Link>
-                            <Link
-                                to="/kontakt-meg"
-                                className={`header-button ${activeTab === '/kontakt-meg' ? 'active' : ''}`}
-                                onClick={() => handleTabClick('/kontakt-meg')}
-                            >
-                                <Typography variant="h6">Kontakt meg</Typography>
-                            </Link>
-                            <Button href="https://zenfit.io" className="header-link" variant="contained">
-                                Kom i gang
-                            </Button>
-                        </div>
-                    </>
-                )}
+            <div className="header-content">
+                <div className="header-button-container">
+                    <button
+                        className={`header-button ${activeTab === '#mine-tjenester' ? 'active' : ''}`}
+                        onClick={() => handleTabClick('mine-tjenester')}
+                    >
+                        <Typography variant="overline">MINE TJENESTER</Typography>
+                    </button>
+                    <button
+                        className={`header-button ${activeTab === '#om-meg' ? 'active' : ''}`}
+                        onClick={() => handleTabClick('om-meg')}
+                    >
+                        <Typography variant="overline">OM MEG</Typography>
+                    </button>
+                    <button
+                        className={`header-button ${activeTab === '#kundeanmeldelser' ? 'active' : ''}`}
+                        onClick={() => handleTabClick('kundeanmeldelser')}
+                    >
+                        <Typography variant="overline">KUNDEANMELDELSER</Typography>
+                    </button>
+                    <button
+                        className={`header-button ${activeTab === '#kontakt' ? 'active' : ''}`}
+                        onClick={() => handleTabClick('kontakt')}
+                    >
+                        <Typography variant="overline">KONTAKT</Typography>
+                    </button>
+                </div>
             </div>
         </div>
     );
