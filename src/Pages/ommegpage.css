@@ -62,6 +62,7 @@
         width: auto;
     }
     .om-meg-image {
+        margin-top: 0px;
         width: 90vw;
         height: 90vw;
     }

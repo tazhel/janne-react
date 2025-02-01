@@ -199,3 +199,15 @@
         object-fit: contain !important;
     }
 }
+
+@media (max-width: 768px) {
+    .home-title {
+        margin-left: 16px;
+        font-size: 20px;
+    }
+
+    .home-text {
+        margin-left: 16px;
+        font-size: 16px;
+    }
+}

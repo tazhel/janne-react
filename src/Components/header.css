@@ -63,3 +63,9 @@
         height: 120px;
     }
 }
+
+@media (max-width: 354px) {
+    .header-container {
+        display: none;
+    }
+}

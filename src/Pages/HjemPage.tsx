@@ -39,7 +39,7 @@ const HjemPage: React.FC = () => {
             <div className="home-left">
                 <img className="home-logo" src="CoachingLogo.svg" alt="Logo" />
                 <div className="home-title">
-                    Jeg vil hjelpe deg med å nå dine mål <br />
+                    Jeg vil hjelpe deg med å nå dine mål {!isMobile && <br />}
                     og vise hvor mye du får inkludert i reisen
                 </div>
                 <div className="home-text">
@@ -60,6 +60,7 @@ const HjemPage: React.FC = () => {
                         className="coaching-image-alone"
                         style={{
                             opacity: 1 - fade * 2,
+                            display: fade >= 0.5 ? 'none' : 'block',
                             transform: `translateX(40%)`,
                         }}
                     />
