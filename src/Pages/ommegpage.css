@@ -17,6 +17,7 @@
     font-family: 'DM Serif Display', serif;
     width: 40dvw;
     font-size: 30px;
+    margin: 0 50px;
     font-weight: 800;
     color: transparent; /* Makes the text fill transparent */
     background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient color for the text fill */
@@ -25,13 +26,14 @@
 }
 
 .om-meg-text {
-    width: 60dvw;
+    width: 50dvw;
+    margin: 0 50px;
     font-size: 20px;
 }
 
 .om-meg-image {
-    width: 60dvw;
-    height: 60dvw;
+    width: 50dvw;
+    height: 50dvw;
     margin: 16px;
     border-radius: 20px;
     object-fit: cover;
