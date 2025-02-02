@@ -11,18 +11,59 @@ const KontaktPage: React.FC = () => {
         phone: '',
         instagram: '',
     });
+    const [errors, setErrors] = useState({
+        email: '',
+        phone: '',
+    });
+    const [touched, setTouched] = useState({
+        email: false,
+        phone: false,
+    });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const nextStep = () => setStep(step + 1);
+    const nextStep = () => {
+        if (step === 3 && validateForm()) {
+            setStep(step + 1);
+        } else if (step < 3) {
+            setStep(step + 1);
+        }
+    };
+
     const prevStep = () => setStep(step - 1);
+
     const handleSubmit = () => {
-        //TODO change to real form
-        window.open('https://form.jotform.com/242323185234046', '_blank');
-        // console.log('Form submitted:', formData);
-        // alert('Denne featuren er dessverre ikke tilgjengelig enda');
+        if (validateForm()) {
+            console.log('Form submitted:', formData);
+            alert('Ditt ønsket har blitt sendt inn');
+        }
+    };
+
+    const validateForm = () => {
+        let valid = true;
+        let emailError = '';
+        let phoneError = '';
+
+        // Email validation
+        if (touched.email && !formData.email.includes('@')) {
+            emailError = 'Vennligst skriv en gyldig e-postadresse med @';
+            valid = false;
+        }
+
+        // Norwegian phone validation (only 8 digits after +47)
+        if (touched.phone && formData.phone && !/^\+47\d{8}$/.test(formData.phone)) {
+            phoneError = 'Telefonnummeret må være norsk og bestå av 8 sifre.';
+            valid = false;
+        }
+
+        setErrors({ email: emailError, phone: phoneError });
+        return valid;
+    };
+
+    const handleBlur = (field: string) => {
+        setTouched({ ...touched, [field]: true });
     };
 
     return (
@@ -92,20 +133,27 @@ const KontaktPage: React.FC = () => {
                         placeholder="Epost"
                         value={formData.email}
                         onChange={handleChange}
+                        onBlur={() => handleBlur('email')}
+                        style={{ color: 'white' }}
                     />
+                    {touched.email && errors.email && <div className="error-message">{errors.email}</div>}
                     <input
                         type="tel"
                         name="phone"
-                        placeholder="Telefon"
+                        placeholder="Telefon (+47)"
                         value={formData.phone}
                         onChange={handleChange}
+                        onBlur={() => handleBlur('phone')}
+                        style={{ color: 'white' }}
                     />
+                    {touched.phone && errors.phone && <div className="error-message">{errors.phone}</div>}
                     <input
                         type="text"
                         name="instagram"
                         placeholder="Instagram (valgfri)"
                         value={formData.instagram}
                         onChange={handleChange}
+                        style={{ color: 'white' }}
                     />
                     <button className="kontakt-button" onClick={prevStep}>
                         Tilbake
