@@ -1,17 +1,17 @@
 .home-container {
     position: relative;
     width: 100%;
-    height: calc(100dvh + 1200px);
+    height: calc(100dvh + 1008px);
     overflow: hidden;
 }
 
 .home-container img {
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
     width: auto;
     max-width: 50dvw;
-    height: 100%;
+    height: calc(100% - 48px);
     object-fit: cover;
 }
 
@@ -21,6 +21,10 @@
     left: 0;
     margin-left: 64px;
     width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .home-logo {
@@ -60,7 +64,7 @@
     background-size: 300% 300%;
     border: none;
     padding: 12px 24px;
-    margin: 48px;
+    margin-top: 48px;
     border-radius: 12px;
     cursor: pointer;
     transition:
@@ -81,19 +85,6 @@
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Gradient Animation */
-@keyframes Gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 .home-color {
     color: transparent;
     background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
@@ -101,18 +92,6 @@
     background-clip: text;
     -webkit-background-clip: text;
     animation: Gradient 15s ease infinite; /* The gradient will animate over 15 seconds */
-}
-
-@keyframes Gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 .coaching-logo {
@@ -129,24 +108,29 @@
     right: 0;
     width: auto;
     height: 100%;
+    border-radius: 16px 0 0 16px;
 }
 
 .coaching-image-alone {
     z-index: 1;
-    top: 0;
+    bottom: 0;
     right: 0;
     width: auto;
     height: 100%;
     object-fit: contain;
 }
 
-@media (max-width: 1400px) {
-    .home-logo {
-        display: block;
+@media (max-width: 1700px) {
+    .home-container {
+        height: 100dvh;
     }
 
     .home-left {
-        top: 15dvh;
+        top: 0;
+    }
+
+    .home-logo {
+        display: block;
     }
 
     .coaching-logo {
@@ -155,6 +139,14 @@
 }
 
 @media (max-width: 768px) {
+    .home-left {
+        align-items: flex-start;
+    }
+
+    .home-button {
+        margin-left: 32px;
+    }
+
     .home-container {
         height: 100dvh;
     }
@@ -187,10 +179,10 @@
         top: 0 !important;
         left: 0 !important;
         width: auto !important;
-        max-width: calc(100dvw - 32px) !important;
-        padding-top: 16px;
+        max-width: calc(100dvw - 64px) !important;
+        padding: 24px 0 48px 0;
         height: 120px !important;
-        margin: 0 16px !important;
+        margin: 0 32px !important;
         object-fit: contain !important;
     }
 

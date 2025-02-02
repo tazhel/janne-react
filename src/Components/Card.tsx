@@ -10,8 +10,11 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, binding, price, description, label }) => {
+    const handleClick = () => {
+        document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' });
+    };
     return (
-        <div className="card">
+        <div className="card" onClick={handleClick}>
             {label && <div className="card-label">ANBEFALT</div>}
             <div className="card-title">{title}</div>
             <div className="card-body">
@@ -19,8 +22,9 @@ const Card: React.FC<CardProps> = ({ title, binding, price, description, label }
                 <div className="card-price">{price}</div>
                 <div className="card-text-container">
                     {description.map((item, index) => (
-                        <div className="card-text" key={index}>
-                            {item}
+                        <div key={index} className="card-item">
+                            <div className="checkmark-icon">✓</div>
+                            <div className="card-text">{item}</div>
                         </div>
                     ))}
                 </div>

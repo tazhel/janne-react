@@ -1,7 +1,9 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import Footer from './Components/Footer';
 import Header from './Components/Header';
+import Quote from './Components/Quote';
 import './global.css';
 import { useThemeMode } from './hooks/Helpers';
 import HjemPage from './Pages/HjemPage';
@@ -33,9 +35,11 @@ const App: React.FC = () => {
                     <OmMegPage />
                     <div id="kundeanmeldelser" className="scroll-link" />
                     <KundeAnmeldelserPage />
+                    <Quote />
                     <div id="kontakt" className="scroll-link" />
                     <KontaktPage />
                 </div>
+                <Footer />
             </ThemeProvider>
         </BrowserRouter>
     );

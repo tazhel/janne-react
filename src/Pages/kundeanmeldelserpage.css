@@ -4,67 +4,149 @@
     margin: 0 16px;
     gap: 16px;
     flex-direction: row-reverse;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.kundeanmeldelser-content {
+.om-meg-image {
+    width: 40vw;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.review-cards {
+    display: flex;
+    gap: 48px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 48dvw;
+}
+
+.review-box {
+    background-color: #3e3c3b;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    min-height: 220px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    position: relative;
 }
 
-.kundeanmeldelser-title {
-    font-family: 'DM Serif Display', serif;
-    width: 40dvw;
-    font-size: 30px;
-    margin: 0 50px;
-    font-weight: 800;
-    color: transparent; /* Makes the text fill transparent */
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient color for the text fill */
-    background-clip: text; /* Clips the background to the text */
-    -webkit-background-clip: text; /* For Safari */
+.review-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit; /* Keeps the same 16px border-radius */
+    padding: 3px;
+    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background-size: 400% 400%;
+    animation: Gradient 3s ease infinite;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 1; /* Always visible */
+    pointer-events: none; /* So it doesn't interfere with clicking */
 }
 
-.kundeanmeldelser-text {
-    width: 50dvw;
-    margin: 0 50px;
+.review-body {
+    margin: 8px 0 16px 0;
+}
+
+.review-text-container {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.review-text {
+    font-size: 16px;
+    margin: 24px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.review-name-expand {
+    position: absolute;
+    bottom: 48px;
+    right: 80px;
     font-size: 20px;
+    font-weight: 500;
+    margin-top: 24px;
+    color: white;
 }
 
-.kundeanmeldelser-image {
-    width: 50dvw;
-    height: 50dvw;
-    margin: 16px;
-    border-radius: 20px;
-    object-fit: cover;
+.review-name {
+    position: absolute;
+    bottom: 64px;
+    right: 80px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 24px;
+    color: white;
 }
 
-.kundeanmeldelser-image-half {
-    width: 40dvw;
-    height: 40dvw;
-    border-radius: 20px;
-    object-fit: cover;
+.review-qoute-left {
+    position: absolute;
+    top: 12px;
+    left: 24px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: transparent;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
-@media screen and (max-width: 1452px) {
+.review-qoute-right {
+    position: absolute;
+    bottom: 48px;
+    right: 32px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: transparent;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.expand-toggle {
+    font-size: 16px;
+    color: #feb47b;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: fit-content;
+}
+
+.expand-toggle:hover {
+    color: #ee7752;
+}
+
+@media screen and (max-width: 768px) {
     .kundeanmeldelser-container {
+        margin: 0 16px 64px 16px;
         align-items: normal;
         flex-direction: column;
         align-content: center;
         flex-wrap: wrap;
     }
-}
 
-@media screen and (max-width: 768px) {
-    .kundeanmeldelser-title {
-        width: auto;
+    .om-meg-image {
+        width: 80vw;
     }
 
-    .kundeanmeldelser-text {
-        width: auto;
-    }
-    .kundeanmeldelser-image {
-        width: 90vw;
-        height: 90vw;
+    .review-box {
+        width: 100%;
+        padding: 15px;
     }
 }

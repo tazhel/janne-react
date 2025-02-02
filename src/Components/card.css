@@ -10,16 +10,39 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    user-select: none;
+    cursor: pointer;
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 3px;
+    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background-size: 400% 400%;
+    animation: Gradient 3s ease infinite;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 .card-label {
     position: absolute;
-    top: 10px;
-    right: -32px;
+    top: 12px;
+    right: -36px;
     background-color: #ff4e00;
     color: #fff;
     font-size: 12px;
@@ -30,11 +53,6 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     z-index: 2;
-}
-
-.card-label:hover {
-    background-color: #ff7a00;
-    transform: rotate(45deg) scale(1.1); /* Slight scale effect on hover */
 }
 
 .card-title {
@@ -62,7 +80,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #ffffff;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .card-text-container {
@@ -74,4 +92,20 @@
     font-size: 14px;
     color: #ffffff;
     margin-bottom: 8px;
+}
+
+.card-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.checkmark-icon {
+    font-weight: bold; /* Make the checkmark bold */
+    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background-size: 400% 400%;
+    color: transparent; /* Make the text color transparent so the background is visible */
+    -webkit-background-clip: text; /* Apply the gradient to the text */
+    background-clip: text;
+    animation: Gradient 15s ease infinite;
 }

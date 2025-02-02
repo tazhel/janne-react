@@ -5,7 +5,7 @@ const OmMegPage: React.FC = () => {
     return (
         <div className="om-meg-container">
             <img className="om-meg-image" src="CoachingMedJanneBack.png" />
-            <div>
+            <div className="om-meg-text-container">
                 <div className="om-meg-title">Hva kan du forvente av meg som coach?</div>
                 <div className="om-meg-text">
                     Med meg som coach får du en lyttende, realistisk og ærlig coach. Hos meg er det viktig at vi skaper

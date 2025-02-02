@@ -12,7 +12,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    --header-height: 60px;
+    --header-height: 36px;
 
     --background-color: #ffffff;
     --background-color-80: #ffffffcc;
@@ -71,21 +71,17 @@ button {
 }
 
 .scroll-link-less {
-    margin-bottom: 400px;
+    margin-bottom: 240px;
+}
+
+@media screen and (max-width: 1462px) {
+    .scroll-link-less {
+        margin-bottom: 360px;
+    }
 }
 
 .logo {
     z-index: 10;
-}
-
-.coaching-image {
-    bottom: 0;
-    right: 0;
-    z-index: 5;
-}
-
-.coaching-image-alone {
-    z-index: 1;
 }
 
 .page-container {
@@ -155,6 +151,10 @@ button {
 }
 
 @media (max-width: 768px) {
+    .scroll-link {
+        margin-bottom: 50px;
+    }
+
     .homepage-content {
         flex-direction: column;
     }
@@ -260,11 +260,25 @@ button {
 .features-image-container:hover .features-text-small {
     opacity: 1;
 }
+
 @media (max-width: 768px) {
     .features-text-container:hover {
         background-color: var(--background-color-50);
     }
     .features-text-small {
         opacity: 1;
+    }
+}
+
+/* Gradient Animation */
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }

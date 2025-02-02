@@ -1,0 +1,38 @@
+.footer-container {
+    height: 120px;
+}
+
+.footer-line {
+    height: 2px;
+    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+}
+
+.footer-text-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-text {
+    margin: 32px;
+    font-size: 20px;
+}
+
+.footer-image {
+    margin: 8px 4px 2px 19px;
+}
+
+@media (max-width: 768px) {
+    .footer-text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 24px;
+    }
+
+    .footer-text {
+        margin: 6px 32px;
+        font-size: 20px;
+    }
+}

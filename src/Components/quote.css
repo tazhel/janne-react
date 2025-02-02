@@ -1,0 +1,30 @@
+.quote-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 360px;
+    margin-top: 120px;
+    background-color: #3e3c3b;
+}
+
+.quote-title {
+    font-family: 'DM Serif Display', serif;
+    width: 80%;
+    font-size: 6ex;
+    color: transparent;
+    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: Gradient 15s ease infinite;
+}
+
+@media (max-width: 768px) {
+    .quote-container {
+        margin-top: 0;
+    }
+
+    .quote-title {
+        font-size: 4ex;
+    }
+}

@@ -27,7 +27,7 @@ const MineTjenesterPage: React.FC = () => {
 
     const fade = fadeInAndOut(scrollY);
     return (
-        <div className="my-services-container" style={{ opacity: isMobile ? 0 + fade * 200 : 1 }}>
+        <div className="my-services-container" style={{ opacity: isMobile ? 0 + fade * 4 : 1 }}>
             <Card
                 title="Treningsveiledning"
                 binding="3 måneders binding"
