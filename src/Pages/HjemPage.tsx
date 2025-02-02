@@ -36,22 +36,33 @@ const HjemPage: React.FC = () => {
 
     return (
         <div className="home-container">
-            <div className="home-left">
-                <img className="home-logo" src="CoachingLogo.svg" alt="Logo" />
-                <div className="home-title">
-                    Jeg vil hjelpe deg med å nå dine mål {!isMobile && <br />}
-                    og vise hvor mye du får inkludert i reisen
+            {isMobile ? (
+                <div className="home-left">
+                    <img className="home-logo" src="CoachingLogo.svg" alt="Logo" />
+                    <div className="home-title">Jeg vil vise hvor mye du får inkludert i reisen mot dine mål</div>
+                    <div className="home-text">
+                        Jeg brenner for å vise sammenhengen mellom <span className="home-color">fysisk</span> og{' '}
+                        <span className="home-color">mental helse</span>, og jeg hjelper deg til å finne en balanse hvor
+                        du ikke blir for streng med deg selv, men heller ikke sklir ut av de gode rutinene.
+                    </div>
+                    <button className="home-button" onClick={() => handleClick('kontakt')}>
+                        Kom i gang
+                    </button>
                 </div>
-                <div className="home-text">
-                    Jeg hjelper deg på veien mot å bli den sterkeste versjonen av deg selv. Jeg brenner for å vise
-                    sammenhengen mellom <span className="home-color">fysisk</span> og{' '}
-                    <span className="home-color">mental helse</span>, og jeg hjelper deg til å finne en balanse hvor du
-                    ikke blir for streng med deg selv, men heller ikke sklir ut av de gode rutinene.
+            ) : (
+                <div className="home-left">
+                    <img className="home-logo" src="CoachingLogo.svg" alt="Logo" />
+                    <div className="home-title">Jeg vil vise hvor mye du får inkludert i reisen mot dine mål</div>
+                    <div className="home-text">
+                        Jeg brenner for å vise sammenhengen mellom <span className="home-color">fysisk</span> og{' '}
+                        <span className="home-color">mental helse</span>, og jeg hjelper deg til å finne en balanse hvor
+                        du ikke blir for streng med deg selv, men heller ikke sklir ut av de gode rutinene.
+                    </div>
+                    <button className="home-button" onClick={() => handleClick('kontakt')}>
+                        Kom i gang
+                    </button>
                 </div>
-                <button className="home-button" onClick={() => handleClick('kontakt')}>
-                    Kom i gang
-                </button>
-            </div>
+            )}
             {isMobile ? (
                 <>
                     <img
@@ -59,7 +70,7 @@ const HjemPage: React.FC = () => {
                         alt="CoachingMedJanneAlone"
                         className="coaching-image-alone"
                         style={{
-                            opacity: 1 - fade * 2,
+                            opacity: 1 - fade * 4,
                             display: fade >= 0.5 ? 'none' : 'block',
                             transform: `translateX(40%)`,
                         }}

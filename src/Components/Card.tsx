@@ -12,7 +12,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ title, binding, price, description, label }) => {
     return (
         <div className="card">
-            {label && <div className="card-label">VALUE</div>}
+            {label && <div className="card-label">ANBEFALT</div>}
             <div className="card-title">{title}</div>
             <div className="card-body">
                 <div className="card-binding">{binding}</div>

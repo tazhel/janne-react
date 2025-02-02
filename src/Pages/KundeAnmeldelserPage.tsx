@@ -6,7 +6,7 @@ const KundeAnmeldelserPage: React.FC = () => {
         <div className="kundeanmeldelser-container">
             <img className="om-meg-image" src="CoachingMedJanneSmiley.png" />
             <div>
-                <div className="kundeanmeldelser-title">Error name missing</div>
+                <div className="kundeanmeldelser-title">Emma Julie Bratli</div>
                 <div className="kundeanmeldelser-text">
                     «I 12 uker hadde jeg gleden av å trene med Janne som PT, og jeg kan ikke anbefale henne nok! Hun var
                     dyktig og profesjonell i alt hun gjorde. Kunnskapen og engasjementet hennes for trening og
@@ -24,7 +24,7 @@ const KundeAnmeldelserPage: React.FC = () => {
                     gøy og givende, så anbefaler jeg Janne på det sterkeste❤️»
                 </div>
                 <br />
-                <div className="kundeanmeldelser-title">Error name missing</div>
+                <div className="kundeanmeldelser-title">Eva-Elisabeth Løbbel</div>
                 <div className="kundeanmeldelser-text">
                     «Gjennom timer med Janne lærte jeg riktig teknikk i øvelsene mine, noe som gjorde at jeg følte meg
                     bedre og tryggere på trening. En konkret plan rettet mot meg gjorde at jeg nådde målene mine, noe

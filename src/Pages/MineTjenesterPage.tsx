@@ -27,7 +27,18 @@ const MineTjenesterPage: React.FC = () => {
 
     const fade = fadeInAndOut(scrollY);
     return (
-        <div className="my-services-container" style={{ opacity: isMobile ? 0 + fade : 1 }}>
+        <div className="my-services-container" style={{ opacity: isMobile ? 0 + fade * 200 : 1 }}>
+            <Card
+                title="Treningsveiledning"
+                binding="3 måneders binding"
+                price="1399kr /mnd"
+                description={[
+                    'Personlig tilpasset treningsprogram',
+                    'Veiledning og teknikkvideoer til alle øvelser',
+                    'Loggføring av øktene for å følge progresjonen',
+                    'Chat med meg tilgjengelig 24/7',
+                ]}
+            />
             <Card
                 title="Kostholdsveiledning"
                 binding="3 måneders binding"
@@ -37,17 +48,6 @@ const MineTjenesterPage: React.FC = () => {
                     'Flere oppskrifter å velge mellom',
                     'Tilpasning og justering av matplan ved behov',
                     'Chat med meg tilgjengelig 24/7',
-                ]}
-            />
-            <Card
-                title="Treningsveiledning"
-                binding="3 måneders binding"
-                price="1399kr /mnd"
-                description={[
-                    'Personlig tilpasset treningsprogram',
-                    'Veiledning og teknikkvideoer til alle øvelser',
-                    'Loggføring av øktene for å følge progresjonen',
-                    'Chat med meg tilgjengelig 27/7',
                 ]}
             />
             <Card

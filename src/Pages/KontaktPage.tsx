@@ -60,11 +60,7 @@ const KontaktPage: React.FC = () => {
                 <div className="form-slide">
                     <h2>HVILKEN PAKKE ØNSKER DU?</h2>
                     <div className="options">
-                        {[
-                            'Trening og kosthold (med oppfølging/tilgjengelig chat 24/7)',
-                            'Bare trening (med oppfølging/tilgjengelig chat 24/7)',
-                            'Bare kosthold (med oppfølging/tilgjengelig chat 24/7)',
-                        ].map((option) => (
+                        {['Treningsveiledning', 'Kostholdsveiledning', 'Trening og kosthold'].map((option) => (
                             <label key={option}>
                                 <input
                                     type="radio"
@@ -107,7 +103,7 @@ const KontaktPage: React.FC = () => {
                     <input
                         type="text"
                         name="instagram"
-                        placeholder="Instagram"
+                        placeholder="Instagram (valgfri)"
                         value={formData.instagram}
                         onChange={handleChange}
                     />
