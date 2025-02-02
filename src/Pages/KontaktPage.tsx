@@ -21,7 +21,12 @@ const KontaktPage: React.FC = () => {
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData((prevData) => ({ ...prevData, [e.target.name]: e.target.value }));
+
+        // Only clear the error if the user starts typing again
+        if (errors[e.target.name as keyof typeof errors]) {
+            setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: '' }));
+        }
     };
 
     const nextStep = () => {
@@ -34,10 +39,29 @@ const KontaktPage: React.FC = () => {
 
     const prevStep = () => setStep(step - 1);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (validateForm()) {
-            console.log('Form submitted:', formData);
-            alert('Ditt ønsket har blitt sendt inn');
+            try {
+                const response = await fetch('https://contact-form-janne.azurewebsites.net/api/sendEmail', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+
+                if (response.ok) {
+                    alert('Ditt ønsket har blitt sendt inn');
+                } else {
+                    const errorData = await response.json();
+                    alert(
+                        `Noe gikk galt: ${errorData.message || 'Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.'}`,
+                    );
+                }
+            } catch (error) {
+                alert('Noe gikk galt. Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.');
+                console.error(error);
+            }
         }
     };
 
@@ -46,15 +70,14 @@ const KontaktPage: React.FC = () => {
         let emailError = '';
         let phoneError = '';
 
-        // Email validation
-        if (touched.email && !formData.email.includes('@')) {
-            emailError = 'Vennligst skriv en gyldig e-postadresse med @';
+        // Validate only touched fields
+        if (touched.email && formData.email.trim() !== '' && !formData.email.includes('@')) {
+            emailError = 'Vennligst skriv en gyldig e-postadresse';
             valid = false;
         }
 
-        // Norwegian phone validation (only 8 digits after +47)
-        if (touched.phone && formData.phone && !/^\+47\d{8}$/.test(formData.phone)) {
-            phoneError = 'Telefonnummeret må være norsk og bestå av 8 sifre.';
+        if (touched.phone && formData.phone.trim() !== '' && !/^(?:\+47)?\d{8}$/.test(formData.phone)) {
+            phoneError = 'Telefonnummeret må bestå av 8 sifre.';
             valid = false;
         }
 
@@ -63,7 +86,8 @@ const KontaktPage: React.FC = () => {
     };
 
     const handleBlur = (field: string) => {
-        setTouched({ ...touched, [field]: true });
+        setTouched((prevTouched) => ({ ...prevTouched, [field]: true }));
+        validateForm(); // Validate only when leaving the field
     };
 
     return (
@@ -91,7 +115,7 @@ const KontaktPage: React.FC = () => {
                             </label>
                         ))}
                     </div>
-                    <button className="kontakt-button" onClick={nextStep}>
+                    <button className="kontakt-button" onClick={nextStep} disabled={!formData.help}>
                         Neste
                     </button>
                 </div>
@@ -117,7 +141,7 @@ const KontaktPage: React.FC = () => {
                     <button className="kontakt-button" onClick={prevStep}>
                         Tilbake
                     </button>
-                    <button className="kontakt-button" onClick={nextStep}>
+                    <button className="kontakt-button" onClick={nextStep} disabled={!formData.package}>
                         Neste
                     </button>
                 </div>
@@ -127,6 +151,7 @@ const KontaktPage: React.FC = () => {
                 <div className="form-slide">
                     <h2>KONTAKTINFORMASJON</h2>
                     <input type="text" name="name" placeholder="Navn" value={formData.name} onChange={handleChange} />
+                    {touched.email && errors.email && <div className="error-message">{errors.email}</div>}
                     <input
                         type="email"
                         name="email"
@@ -134,9 +159,8 @@ const KontaktPage: React.FC = () => {
                         value={formData.email}
                         onChange={handleChange}
                         onBlur={() => handleBlur('email')}
-                        style={{ color: 'white' }}
                     />
-                    {touched.email && errors.email && <div className="error-message">{errors.email}</div>}
+                    {touched.phone && errors.phone && <div className="error-message">{errors.phone}</div>}
                     <input
                         type="tel"
                         name="phone"
@@ -144,16 +168,13 @@ const KontaktPage: React.FC = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         onBlur={() => handleBlur('phone')}
-                        style={{ color: 'white' }}
                     />
-                    {touched.phone && errors.phone && <div className="error-message">{errors.phone}</div>}
                     <input
                         type="text"
                         name="instagram"
                         placeholder="Instagram (valgfri)"
                         value={formData.instagram}
                         onChange={handleChange}
-                        style={{ color: 'white' }}
                     />
                     <button className="kontakt-button" onClick={prevStep}>
                         Tilbake

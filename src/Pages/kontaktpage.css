@@ -46,8 +46,8 @@
 }
 
 .options input {
-    margin-right: 12px; /* space between the radio button and label text */
-    width: auto; /* Prevent radio buttons from stretching */
+    margin-right: 12px;
+    width: auto;
 }
 
 .options label:hover {
@@ -61,8 +61,12 @@ input {
     border: none;
     border-radius: 8px;
     font-size: 16px;
-    color: #959595;
-    background: rgba(255, 255, 255, 0.2); /* Less dark background */
+    color: #ffffff;
+    background: rgba(23, 23, 23, 0.2); /* Less dark background */
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Light grey placeholder */
 }
 
 .kontakt-button {
