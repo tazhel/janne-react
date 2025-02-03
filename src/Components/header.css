@@ -113,17 +113,17 @@
     }
 }
 
+@media (max-width: 488px) {
+    .header-content {
+        height: calc(var(--header-height) + 32px);
+    }
+}
+
 /* Style the dropdown for smaller screens */
 @media (max-width: 768px) {
     .header-dropdown {
         font-size: 14px;
         padding: 10px;
         max-width: 250px;
-    }
-}
-
-@media (max-width: 488px) {
-    .header-content {
-        height: calc(var(--header-height) + 64px);
     }
 }

@@ -120,6 +120,10 @@
     object-fit: contain;
 }
 
+.coaching-mine-tjenester {
+    margin-top: -200px;
+}
+
 @media (max-width: 1700px) {
     .home-container {
         height: 100dvh;

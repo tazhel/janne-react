@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import Quote from './Components/Quote';
 import './global.css';
 import { useThemeMode } from './hooks/Helpers';
+import Is1700 from './hooks/Is1700';
 import HjemPage from './Pages/HjemPage';
 import KontaktPage from './Pages/KontaktPage';
 import KundeAnmeldelserPage from './Pages/KundeAnmeldelserPage';
@@ -13,6 +14,7 @@ import MineTjenesterPage from './Pages/MineTjenesterPage';
 import OmMegPage from './Pages/OmMegPage';
 
 const App: React.FC = () => {
+    const is1700 = Is1700();
     const { theme } = useThemeMode();
     const customTheme = createTheme({
         palette: {
@@ -29,7 +31,11 @@ const App: React.FC = () => {
                 <Header />
                 <div className="page-container">
                     <HjemPage />
-                    <div id="mine-tjenester" className="scroll-link-less" />
+                    {is1700 ? (
+                        <div id="mine-tjenester" className="scroll-link-less" />
+                    ) : (
+                        <div className="scroll-link-less" />
+                    )}
                     <MineTjenesterPage />
                     <div id="om-meg" className="scroll-link" />
                     <OmMegPage />

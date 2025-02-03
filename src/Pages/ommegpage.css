@@ -61,6 +61,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .om-meg-container {
+        margin: 0;
+    }
+
     .om-meg-title {
         width: auto;
     }

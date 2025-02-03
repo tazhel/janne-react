@@ -7,13 +7,13 @@
     margin-top: -300px;
 }
 
-@media screen and (max-width: 1582px) {
+@media screen and (max-width: 1572px) {
     .my-services-container {
         gap: 20px;
     }
 }
 
-@media screen and (max-width: 1462px) {
+@media screen and (max-width: 1452px) {
     .my-services-container {
         gap: 20px;
         padding: 0 200px;

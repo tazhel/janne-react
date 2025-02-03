@@ -132,6 +132,15 @@
     color: #ee7752;
 }
 
+@media screen and (max-width: 1462px) {
+    .kundeanmeldelser-container {
+        align-items: normal;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .kundeanmeldelser-container {
         margin: 0 16px 64px 16px;
@@ -145,8 +154,12 @@
         width: 80vw;
     }
 
+    .review-cards {
+        width: 100dvw;
+    }
+
     .review-box {
-        width: calc(100dvw - 16px);
+        width: calc(100% - 16px);
         padding: 16px;
     }
 

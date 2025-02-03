@@ -1,3 +1,4 @@
+import { EmailClient } from '@azure/communication-email';
 import React, { useState } from 'react';
 import './kontaktpage.css';
 
@@ -42,25 +43,63 @@ const KontaktPage: React.FC = () => {
     const handleSubmit = async () => {
         if (validateForm()) {
             try {
-                const response = await fetch('https://contact-form-janne.azurewebsites.net/api/sendEmail', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-                });
+                // Create an EmailClient instance
+                const connectionString =
+                    'endpoint=https://service-form-janne.norway.communication.azure.com/;accesskey=FDu8AtFgVOnkTgRsY67nxlDkeIQcs269ZNTKWq1asvgFHn3vgrf9JQQJ99BBACULyCpxhlXyAAAAAZCSH6mA';
+                const emailClient = new EmailClient(connectionString);
 
-                if (response.ok) {
-                    alert('Ditt ønsket har blitt sendt inn');
-                } else {
-                    const errorData = await response.json();
+                const sender = 'DoNotReply@8b407c6b-266f-4c77-ae81-a18dd6b4f667.azurecomm.net'; // Your verified sender email (replace if needed)
+                const recipient = 'nordinjanne3@gmail.com'; // The recipient email
+                // const recipient = 'nordinjanne3@gmail.com'; // The recipient email
+
+                const emailMessage = {
+                    senderAddress: sender,
+                    content: {
+                        subject: 'Ny kunde Coaching med Janne Nordin',
+                        plainText: `
+                            Ny kunde informasjon:
+                    
+                            Hjelp: ${formData.help}
+                            Pakke: ${formData.package}
+                            Navn: ${formData.name}
+                            E-post: ${formData.email}
+                            Telefon: ${formData.phone}
+                            Instagram: ${formData.instagram}
+                        `,
+                        html: `
+                            <html>
+                                <body>
+                                    <h1>Ny kunde informasjon:</h1>
+                                    <p><strong>Hjelp:</strong> ${formData.help}</p>
+                                    <p><strong>Pakke:</strong> ${formData.package}</p>
+                                    <p><strong>Navn:</strong> ${formData.name}</p>
+                                    <p><strong>E-post:</strong> ${formData.email}</p>
+                                    <p><strong>Telefon:</strong> ${formData.phone}</p>
+                                    <p><strong>Instagram:</strong> ${formData.instagram}</p>
+                                </body>
+                            </html>
+                        `,
+                    },
+                    recipients: {
+                        to: [{ address: recipient }],
+                    },
+                };
+
+                const poller = await emailClient.beginSend(emailMessage);
+                const result = await poller.pollUntilDone();
+
+                if (result.status === 'Succeeded') {
                     alert(
-                        `Noe gikk galt: ${errorData.message || 'Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.'}`,
+                        'Skjemaet ditt er sendt inn! Janne ser frem til å hjelpe deg med dine treningsmål, og du vil høre fra henne snart.',
+                    );
+                } else {
+                    alert(
+                        `Noe gikk galt. Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.`,
                     );
                 }
             } catch (error) {
                 alert('Noe gikk galt. Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.');
-                console.error(error);
+                console.error('Error during email send:', error);
             }
         }
     };

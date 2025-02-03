@@ -14,12 +14,12 @@
         "prettier": "prettier . --check"
     },
     "dependencies": {
+        "@azure/communication-email": "^1.0.0",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.0",
         "@fontsource/roboto": "^5.1.1",
         "@mui/icons-material": "6.4.2",
         "@mui/material": "6.4.2",
-        "nodemailer": "^6.10.0",
         "react": "19.0.0",
         "react-dom": "19.0.0",
         "react-router-dom": "7.1.4"
