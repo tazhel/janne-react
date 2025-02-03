@@ -48,9 +48,8 @@ const KontaktPage: React.FC = () => {
                     'endpoint=https://service-form-janne.norway.communication.azure.com/;accesskey=FDu8AtFgVOnkTgRsY67nxlDkeIQcs269ZNTKWq1asvgFHn3vgrf9JQQJ99BBACULyCpxhlXyAAAAAZCSH6mA';
                 const emailClient = new EmailClient(connectionString);
 
-                const sender = 'DoNotReply@8b407c6b-266f-4c77-ae81-a18dd6b4f667.azurecomm.net'; // Your verified sender email (replace if needed)
+                const sender = 'DoNotReply@jannenordin.com'; // Your verified sender email (replace if needed)
                 const recipient = 'nordinjanne3@gmail.com'; // The recipient email
-                // const recipient = 'nordinjanne3@gmail.com'; // The recipient email
 
                 const emailMessage = {
                     senderAddress: sender,
@@ -98,8 +97,8 @@ const KontaktPage: React.FC = () => {
                     );
                 }
             } catch (error) {
+                console.error('Error during email send:', JSON.stringify(error, null, 2)); // Detailed error log
                 alert('Noe gikk galt. Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.');
-                console.error('Error during email send:', error);
             }
         }
     };
