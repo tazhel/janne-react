@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import './kontaktpage.css';
 
 const KontaktPage: React.FC = () => {
+    const [submitText, setSubmitText] = useState('');
+    const [loading, setLoading] = useState(false);
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         help: '',
@@ -44,6 +46,7 @@ const KontaktPage: React.FC = () => {
         if (validateForm()) {
             try {
                 // Create an EmailClient instance
+                setLoading(true);
                 const connectionString =
                     'endpoint=https://service-form-janne.norway.communication.azure.com/;accesskey=FDu8AtFgVOnkTgRsY67nxlDkeIQcs269ZNTKWq1asvgFHn3vgrf9JQQJ99BBACULyCpxhlXyAAAAAZCSH6mA';
                 const emailClient = new EmailClient(connectionString);
@@ -56,28 +59,28 @@ const KontaktPage: React.FC = () => {
                     content: {
                         subject: 'Ny kunde Coaching med Janne Nordin',
                         plainText: `
-                            Ny kunde informasjon:
-                    
-                            Hjelp: ${formData.help}
-                            Pakke: ${formData.package}
-                            Navn: ${formData.name}
-                            E-post: ${formData.email}
-                            Telefon: ${formData.phone}
-                            Instagram: ${formData.instagram}
-                        `,
+                        Ny kunde informasjon:
+
+                        Hjelp: ${formData.help}
+                        Pakke: ${formData.package}
+                        Navn: ${formData.name}
+                        E-post: ${formData.email}
+                        Telefon: ${formData.phone}
+                        Instagram: ${formData.instagram}
+                    `,
                         html: `
-                            <html>
-                                <body>
-                                    <h1>Ny kunde informasjon:</h1>
-                                    <p><strong>Hjelp:</strong> ${formData.help}</p>
-                                    <p><strong>Pakke:</strong> ${formData.package}</p>
-                                    <p><strong>Navn:</strong> ${formData.name}</p>
-                                    <p><strong>E-post:</strong> ${formData.email}</p>
-                                    <p><strong>Telefon:</strong> ${formData.phone}</p>
-                                    <p><strong>Instagram:</strong> ${formData.instagram}</p>
-                                </body>
-                            </html>
-                        `,
+                        <html>
+                            <body>
+                                <h1>Ny kunde informasjon:</h1>
+                                <p><strong>Hjelp:</strong> ${formData.help}</p>
+                                <p><strong>Pakke:</strong> ${formData.package}</p>
+                                <p><strong>Navn:</strong> ${formData.name}</p>
+                                <p><strong>E-post:</strong> ${formData.email}</p>
+                                <p><strong>Telefon:</strong> ${formData.phone}</p>
+                                <p><strong>Instagram:</strong> ${formData.instagram}</p>
+                            </body>
+                        </html>
+                    `,
                     },
                     recipients: {
                         to: [{ address: recipient }],
@@ -88,17 +91,26 @@ const KontaktPage: React.FC = () => {
                 const result = await poller.pollUntilDone();
 
                 if (result.status === 'Succeeded') {
-                    alert(
+                    setSubmitText(
                         'Skjemaet ditt er sendt inn! Janne ser frem til å hjelpe deg med dine treningsmål, og du vil høre fra henne snart.',
                     );
+                    setStep(4);
+                    setLoading(false);
                 } else {
-                    alert(
-                        `Noe gikk galt. Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.`,
+                    setSubmitText(
+                        'Noe gikk galt. Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.',
                     );
+                    setStep(4);
+                    setLoading(false);
                 }
             } catch (error) {
                 console.error('Error during email send:', JSON.stringify(error, null, 2)); // Detailed error log
                 alert('Noe gikk galt. Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.');
+                setSubmitText(
+                    'Noe gikk galt. Vennligst prøv igjen, eller send en e-post direkte til nordinjanne3@gmail.com.',
+                );
+                setStep(4);
+                setLoading(false);
             }
         }
     };
@@ -158,7 +170,6 @@ const KontaktPage: React.FC = () => {
                     </button>
                 </div>
             )}
-
             {step === 2 && (
                 <div className="form-slide">
                     <h2>HVILKEN PAKKE ØNSKER DU?</h2>
@@ -184,7 +195,6 @@ const KontaktPage: React.FC = () => {
                     </button>
                 </div>
             )}
-
             {step === 3 && (
                 <div className="form-slide">
                     <h2>KONTAKTINFORMASJON</h2>
@@ -214,12 +224,18 @@ const KontaktPage: React.FC = () => {
                         value={formData.instagram}
                         onChange={handleChange}
                     />
-                    <button className="kontakt-button" onClick={prevStep}>
+                    <button className="kontakt-button" onClick={prevStep} disabled={loading}>
                         Tilbake
                     </button>
-                    <button className="kontakt-button" onClick={handleSubmit}>
-                        Send
+                    <button className="kontakt-button" onClick={handleSubmit} disabled={loading}>
+                        {loading ? 'Sender...' : 'Send'}
                     </button>
+                </div>
+            )}
+            {step === 4 && (
+                <div className="form-slide">
+                    <h2>MELDINGEN ER SENT</h2>
+                    <div>{submitText}</div>
                 </div>
             )}
         </div>
