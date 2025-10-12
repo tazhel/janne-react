@@ -38,11 +38,10 @@ const HjemPage: React.FC = () => {
                 {isMobile ? (
                     <div className="home-left">
                         <img className="home-logo" src="CoachingLogo.svg" alt="Logo" />
-                        <div className="home-title">Jeg vil vise hvor mye du får inkludert i reisen mot dine mål</div>
+                        <div className="home-title">Oppnå målene dine - og bli den sterkeste versjonen av deg selv</div>
                         <div className="home-text">
-                            Jeg brenner for å vise sammenhengen mellom <span className="home-color">fysisk</span> og{' '}
-                            <span className="home-color">mental helse</span>, og jeg hjelper deg til å finne en balanse
-                            hvor du ikke blir for streng med deg selv, men heller ikke sklir ut av de gode rutinene.
+                            Sammen jobber vi mot målene dine og skaper en balansert hverdag der du ikke blir for streng
+                            med deg selv, men heller ikke sklir ut av de gode rutinene.
                         </div>
                         <button className="home-button" onClick={() => handleClick('kontakt')}>
                             Kom i gang
@@ -51,11 +50,10 @@ const HjemPage: React.FC = () => {
                 ) : (
                     <div className="home-left">
                         <img className="home-logo" src="CoachingLogo.svg" alt="Logo" />
-                        <div className="home-title">Jeg vil vise hvor mye du får inkludert i reisen mot dine mål</div>
+                        <div className="home-title">Oppnå målene dine - og bli den sterkeste versjonen av deg selv</div>
                         <div className="home-text">
-                            Jeg brenner for å vise sammenhengen mellom <span className="home-color">fysisk</span> og{' '}
-                            <span className="home-color">mental helse</span>, og jeg hjelper deg til å finne en balanse
-                            hvor du ikke blir for streng med deg selv, men heller ikke sklir ut av de gode rutinene.
+                            Sammen jobber vi mot målene dine og skaper en balansert hverdag der du ikke blir for streng
+                            med deg selv, men heller ikke sklir ut av de gode rutinene.
                         </div>
                         <button className="home-button" onClick={() => handleClick('kontakt')}>
                             Kom i gang

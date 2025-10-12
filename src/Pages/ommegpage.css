@@ -20,7 +20,7 @@
     margin: 0 16px;
     font-weight: 800;
     color: transparent; /* Makes the text fill transparent */
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient color for the text fill */
+    background: linear-gradient(to right, #fff9d8, #fff4b8); /* Gradient color for the text fill */
     background-clip: text; /* Clips the background to the text */
     -webkit-background-clip: text; /* For Safari */
 }

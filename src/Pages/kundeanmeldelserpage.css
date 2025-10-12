@@ -44,7 +44,7 @@
     inset: 0;
     border-radius: inherit; /* Keeps the same 16px border-radius */
     padding: 3px;
-    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background: linear-gradient(-45deg, #fff9d8, #fff4b8, #fef0a0, #fff9d8);
     background-size: 400% 400%;
     animation: Gradient 3s ease infinite;
     -webkit-mask:
@@ -102,7 +102,7 @@
     font-family: 'DM Serif Display', serif;
     font-size: 48px;
     color: transparent;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background: linear-gradient(to right, #fff9d8, #fff4b8);
     background-clip: text;
     -webkit-background-clip: text;
 }
@@ -114,14 +114,14 @@
     font-family: 'DM Serif Display', serif;
     font-size: 48px;
     color: transparent;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background: linear-gradient(to right, #fff9d8, #fff4b8);
     background-clip: text;
     -webkit-background-clip: text;
 }
 
 .expand-toggle {
     font-size: 16px;
-    color: #feb47b;
+    color: #fff4b8;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -129,7 +129,7 @@
 }
 
 .expand-toggle:hover {
-    color: #ee7752;
+    color: #fff9d8;
 }
 
 @media screen and (max-width: 1462px) {

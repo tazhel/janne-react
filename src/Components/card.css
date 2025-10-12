@@ -20,7 +20,7 @@
     inset: 0;
     border-radius: 16px;
     padding: 3px;
-    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background: linear-gradient(-45deg, #fff9d8, #fff4b8, #fef0a0, #fff9d8);
     background-size: 400% 400%;
     animation: Gradient 3s ease infinite;
     -webkit-mask:
@@ -43,8 +43,8 @@
     position: absolute;
     top: 12px;
     right: -36px;
-    background-color: #ff4e00;
-    color: #fff;
+    background-color: #fff9d8;
+    color: #000;
     font-size: 12px;
     font-weight: bold;
     padding: 6px 36px;
@@ -59,7 +59,7 @@
     font-family: 'DM Serif Display', serif;
     font-size: 30px;
     color: transparent;
-    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background: linear-gradient(-45deg, #fff9d8, #fff4b8, #fef0a0, #fff9d8);
     background-size: 400% 400%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -102,7 +102,7 @@
 
 .checkmark-icon {
     font-weight: bold; /* Make the checkmark bold */
-    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    background: linear-gradient(-45deg, #fff9d8, #fff4b8, #fef0a0, #fff9d8);
     background-size: 400% 400%;
     color: transparent; /* Make the text color transparent so the background is visible */
     -webkit-background-clip: text; /* Apply the gradient to the text */

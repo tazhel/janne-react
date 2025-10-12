@@ -73,8 +73,8 @@ input::placeholder {
     font-family: 'DM Serif Display', serif;
     font-size: 18px;
     font-weight: bold;
-    color: white;
-    background: linear-gradient(45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    color: black;
+    background: linear-gradient(45deg, #fff9d8, #fff4b8, #fef0a0, #fff9d8);
     background-size: 300% 300%;
     border: none;
     padding: 12px 24px;

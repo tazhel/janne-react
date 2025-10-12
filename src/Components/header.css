@@ -11,7 +11,7 @@
     justify-content: space-around;
     align-items: flex-start;
     height: calc(var(--header-height) + 16px);
-    background: linear-gradient(to bottom, #242424 60%, #00000000 100%);
+    background: linear-gradient(to bottom, #5f564e 60%, #00000000 100%);
     position: relative;
     z-index: 99;
 }

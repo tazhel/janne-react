@@ -45,7 +45,7 @@
     font-size: 30px;
     font-weight: 800;
     color: transparent;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background: linear-gradient(to right, #fff9d8, #fff4b8, #fef0a0, #fff9d8);
     background-clip: text;
     -webkit-background-clip: text;
 }
@@ -59,8 +59,8 @@
     font-family: 'DM Serif Display', serif;
     font-size: 20px;
     font-weight: bold;
-    color: white;
-    background: linear-gradient(45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
+    color: #2c2c2c;
+    background: linear-gradient(45deg, #fff9d8, #fff4b8, #fef0a0, #fff9d8);
     background-size: 300% 300%;
     border: none;
     padding: 12px 24px;
@@ -72,26 +72,26 @@
         box-shadow 0.3s ease;
     animation: Gradient 6s ease infinite;
     text-transform: uppercase;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .home-button:hover {
     transform: translateY(-1px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .home-button:active {
     transform: translateY(1px);
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .home-color {
     color: transparent;
-    background: linear-gradient(-45deg, #ee7752, #feb47b, #d75d37, #e08c4c);
-    background-size: 400% 400%; /* Make the gradient larger than the container to allow for movement */
+    background: linear-gradient(-45deg, #fff9d8, #fff4b8, #fef0a0, #fff9d8);
+    background-size: 400% 400%;
     background-clip: text;
     -webkit-background-clip: text;
-    animation: Gradient 15s ease infinite; /* The gradient will animate over 15 seconds */
+    animation: Gradient 15s ease infinite;
 }
 
 .coaching-logo {

@@ -14,7 +14,7 @@
 
     --header-height: 36px;
 
-    --background-color: #242424;
+    --background-color: #5f564e;
     --background-color-80: #000000cc;
     --background-color-50: #00000080;
     --text-color: #ffffff;
@@ -24,7 +24,7 @@
 }
 
 [data-theme='dark'] {
-    --background-color: #242424;
+    --background-color: #5f564e;
     --background-color-80: #000000cc;
     --background-color-50: #00000080;
     --text-color: #ffffff;
